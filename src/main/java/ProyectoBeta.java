@@ -11,7 +11,6 @@ public class ProyectoBeta {
         boolean a;
         do {
             menuPrincipal();
-            ingresoDatos();
             a = validacion(ingresoDatos());
         } while (!a);
 
