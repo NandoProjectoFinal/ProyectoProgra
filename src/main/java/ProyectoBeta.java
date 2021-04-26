@@ -2,40 +2,44 @@ import java.util.Scanner;
 
 public class ProyectoBeta {
     public static void main(String[] args) {
-        menu();
+        System.out.println("fdjskfdsj");
         funcion();
     }
 
     private static void funcion() {
-        ingresoDatos();
-        validacion(ingresoDatos());
+        boolean a;
+        do {
+            menu();
+            ingresoDatos();
+            a = validacion(ingresoDatos());
+        }while (!a);
+
     }
 
     private static String ingresoDatos() {
         Scanner teclado = new Scanner(System.in);
-        String a = teclado.next();
-        return a;
+        return teclado.next();
     }
 
     private static boolean validacion(String ingresoDatos) {
-        boolean a = false;
-        switch (ingresoDatos){
-            case "1":
+        boolean a;
+        switch (ingresoDatos) {
+            case "1" -> {
                 System.out.println("Lista de arboles");
                 a = true;
-                break;
-            case "2":
+            }
+            case "2" -> {
                 System.out.println("Lista de Lugares");
                 a = true;
-                break;
-            case "3":
+            }
+            case "3" -> {
                 System.out.println("Animales de la zona");
-                a= true;
-                break;
-            default:
+                a = true;
+            }
+            default -> {
                 System.out.println("opcion no valida");
-                a= false;
-                break;
+                a = false;
+            }
         }
         return a;
     }
@@ -44,8 +48,11 @@ public class ProyectoBeta {
         System.out.println("[][][][][][][]][][][[][][][][][][][][][][][][][][][][][][]");
         System.out.println("||||||||||||||Bienvenido a Guía del Perdido||||||||||||||");
         System.out.println("[][][][][][][]][][][[][][][][][][][][][][][][][][][][][][]");
-        System.out.println("Desea ver " +"\n"+"[1] Lista de arboles" + "\n" + "[2] Lista de lugares turisticos"
-                + "\n" + "[3] Animales de la zona");
+        System.out.println("""
+                Desea ver\s
+                [1] Lista de arboles
+                [2] Lista de lugares turisticos
+                [3] Animales de la zona""");
     }
 
 }
