@@ -1,26 +1,27 @@
 import java.util.Scanner;
 
 public class ProyectoBeta {
+    static Scanner teclado = new Scanner(System.in);
+
     public static void main(String[] args) {
         funcion();
     }
 
-    private static void funcion() {
+    public static void funcion() {
         boolean a;
         do {
-            menu();
+            menuPrincipal();
             ingresoDatos();
             a = validacion(ingresoDatos());
-        }while (!a);
+        } while (!a);
 
     }
 
-    private static String ingresoDatos() {
-        Scanner teclado = new Scanner(System.in);
+    public static String ingresoDatos() {
         return teclado.next();
     }
 
-    private static boolean validacion(String ingresoDatos) {
+    public static boolean validacion(String ingresoDatos) {
         boolean a;
         switch (ingresoDatos) {
             case "1" -> {
@@ -43,13 +44,14 @@ public class ProyectoBeta {
         return a;
     }
 
-    private static void menu() {
+    public static void menuPrincipal() {
         System.out.println("[][][][][][][]][][][[][][][][][][][][][][][][][][][][][][]");
         System.out.println("||||||||||||||Bienvenido a Guía del Perdido||||||||||||||");
         System.out.println("[][][][][][][]][][][[][][][][][][][][][][][][][][][][][][]");
-        System.out.println("Desea ver \n[1] Lista de arboles\n" +
-                           "[2] Lista de lugares turisticos\n" +
-                           "[3] Animales de la zona");
+        System.out.println("Que desea hacer");
+        System.out.println("[1] ver Arboles");
+        System.out.println("[2] ver Lugares");
+        System.out.println("[3] ver Animales");
     }
 
 }
