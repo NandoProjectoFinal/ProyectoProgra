@@ -48,11 +48,9 @@ public class ProyectoBeta {
         System.out.println("[][][][][][][]][][][[][][][][][][][][][][][][][][][][][][]");
         System.out.println("||||||||||||||Bienvenido a Guía del Perdido||||||||||||||");
         System.out.println("[][][][][][][]][][][[][][][][][][][][][][][][][][][][][][]");
-        System.out.println("""
-                Desea ver\s
-                [1] Lista de arboles
-                [2] Lista de lugares turisticos
-                [3] Animales de la zona""");
+        System.out.println("Desea ver \n[1] Lista de arboles\n" +
+                           "[2] Lista de lugares turisticos\n" +
+                           "[3] Animales de la zona");
     }
 
 }
