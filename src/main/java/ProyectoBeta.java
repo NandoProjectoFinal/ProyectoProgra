@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class ProyectoBeta {
-    static String ruta = "C:\\Users\\HP\\ProyectoProgra\\Animales";
+    static String ruta = "C:\\Users\\HP\\ProyectoProgra\\";
     static Scanner teclado = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -167,6 +167,7 @@ public class ProyectoBeta {
     }
 
     private static void insectos() {
+        muestraContenido(ruta + "Animales\\Insectos");
     }
 
     public static void mostrarAnimales() {
@@ -182,14 +183,16 @@ public class ProyectoBeta {
     }
 
     private static void anfibios() {
+        muestraContenido(ruta + "Animales\\Anfibios");
     }
 
     private static void aves() {
+        muestraContenido(ruta + "Animales\\Aves");
     }
 
     private static void peces() {
 
-        muestraContenido(ruta + "\\Peces");
+        muestraContenido(ruta + "Animales\\Peces");
     }
 
     private static void muestraContenido(String ruta) {
@@ -217,15 +220,19 @@ public class ProyectoBeta {
     }
 
     private static void reptiles() {
+        muestraContenido(ruta + "Animales\\Reptiles");
     }
 
     private static void mamiferos() {
+        muestraContenido(ruta + "Animales\\Mamiferos");
     }
 
     public static void mostrarArboles() {
+        muestraContenido(ruta + "Flora\\Flora");
     }
 
     public static void mostrarLugares() {
+        muestraContenido(ruta + "Lugares\\Lugares");
     }
 
     public static void menuPrincipal() {
