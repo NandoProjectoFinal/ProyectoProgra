@@ -2,9 +2,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class ProyectoBeta {
@@ -19,32 +16,27 @@ public class ProyectoBeta {
         boolean b;
         do {
             mostrarIdioma();
-            b = elegirOpcion(ingresarOpcion());
-
+            b = elegirOpcionIdioma(ingresarRespuesta());
         } while (!b);
     }
 
-    public static void funcion() {
-        boolean a;
-        do {
-            menuPrincipal();
-            a = validacion(ingresoDatos());
-        } while (!a);
-
+    public static void mostrarIdioma() {
+        System.out.println("*                   Bienvenido/Welcome                     *");
+        System.out.println("Por favor, antes de continuar, selecciones un idioma o salga del programa");
+        System.out.println("Please before to continue, select one opcion of language or exit of this program");
+        System.out.println("[1] Español ");
+        System.out.println("[2] English");
+        System.out.println("[3] Salir/exit");
     }
 
-    public static String ingresarOpcion() {
-        String s = teclado.next();
-        return s;
-    }
 
-    public static boolean elegirOpcion(String seleccionOpcion) {
+    public static boolean elegirOpcionIdioma(String seleccionOpcion) {
         boolean b;
         switch (seleccionOpcion) {
             case "1": {
                 System.out.println("Usted ha seleccionado español");
                 b = true;
-                funcion();
+                validarRespuesta();
                 break;
             }
             case "2": {
@@ -67,21 +59,20 @@ public class ProyectoBeta {
         return b;
     }
 
-    public static void mostrarIdioma() {
-        System.out.println("*                   Bienvenido/Welcome                     *");
-        System.out.println("Por favor, antes de continuar, selecciones un idioma o salga del programa");
-        System.out.println("Please before to continue, select one opcion of language or exit of this program");
-        System.out.println("[1] Español ");
-        System.out.println("[2] English");
-        System.out.println("[3] Salir/exit");
+    public static void validarRespuesta() {
+        boolean a;
+        do {
+            menuPrincipal();
+            a = tipodeBusqueda(ingresarRespuesta());
+        } while (!a);
+
     }
 
-    public static String ingresoDatos() {
-
+    public static String ingresarRespuesta() {
         return teclado.next();
     }
 
-    public static boolean validacion(String ingresoDatos) {
+    public static boolean tipodeBusqueda(String ingresoDatos) {
         boolean a;
         switch (ingresoDatos) {
             case "1" -> {
@@ -98,7 +89,7 @@ public class ProyectoBeta {
                 System.out.println("Lista de animales nativos de la zona");
                 a = true;
                 mostrarAnimales();
-                seleccionarTipo();
+                seleccionarTipoAnimal();
             }
             default -> {
                 System.out.println("opcion no valida");
@@ -108,21 +99,12 @@ public class ProyectoBeta {
         return a;
     }
 
-    public static boolean validarNumerico(String dato) {
-        try {
-            int numero = Integer.parseInt(dato);
-            return true;
-        } catch (NumberFormatException ex) {
-            return false;
-        }
-    }
-
-    private static void seleccionarTipo() {
+    private static void seleccionarTipoAnimal() {
         String opcion = "";
         boolean a;
         do {
             opcion = teclado.next();
-            a = validarNumerico(opcion);
+            a = validarAnimal(opcion);
             switch (opcion) {
                 case "1": {
                     System.out.println("Mamiferos");
@@ -162,8 +144,15 @@ public class ProyectoBeta {
                 }
             }
         } while (a == false);
+    }
 
-
+    public static boolean validarAnimal(String dato) {
+        try {
+            int numero = Integer.parseInt(dato);
+            return true;
+        } catch (NumberFormatException ex) {
+            return false;
+        }
     }
 
     private static void insectos() {
@@ -191,7 +180,6 @@ public class ProyectoBeta {
     }
 
     private static void peces() {
-
         muestraContenido(ruta + "Animales\\Peces");
     }
 
